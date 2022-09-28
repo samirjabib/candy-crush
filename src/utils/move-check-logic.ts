@@ -48,3 +48,49 @@ export const isColumnOfThree = (
       }
     }
   };
+
+export const checkForRowOfFour = (
+newBoard: String[],
+boardSize: number,
+invalidMovesForColumnOfFour: number[]
+) => {
+for (let i = 0; i < boardSize * boardSize; i++) {
+    const rowOfFour = [i, i + 1, i + 2, i + 3];
+    const decidedColor = newBoard[i];
+
+    const isBlank = newBoard[i] === "";
+
+    if (invalidMovesForColumnOfFour.includes(i)) continue;
+    if (
+    rowOfFour.every((square) => newBoard[square] === decidedColor && !isBlank)
+    ) {
+    rowOfFour.forEach((square) => (newBoard[square] = ""));
+    return true;
+    }
+}
+};
+
+
+export const checkForRowOfThree = (
+newBoard: string[],
+boardSize: number,
+invalidMovesForColumnOfThree: number[]
+) => {
+for (let i = 0; i < boardSize * boardSize; i++) {
+    const rowOfThree = [i, i + 1, i + 2];
+    const decidedColor = newBoard[i];
+
+    const isBlank = newBoard[i] === "";
+
+    if (invalidMovesForColumnOfThree.includes(i)) continue;
+
+    if (
+    rowOfThree.every(
+        (square) => newBoard[square] === decidedColor && !isBlank
+    )
+    ) {
+    rowOfThree.forEach((square) => (newBoard[square] = ""));
+    return true;
+    }
+}
+};
