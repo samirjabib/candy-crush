@@ -12,7 +12,7 @@ const Board = () => {
     );
     
     return (
-        <div className="flex flex-wrap rounded-lg justify-center  " style={{
+        <div className="flex flex-wrap rounded-lg justify-center" style={{
             width:`${ 6.25* boardSize}rem`
         }}>
             {
