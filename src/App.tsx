@@ -44,7 +44,6 @@ function App() {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <h1 className=" text-7xl text-purple-200 font-black absolute top-[10%]">Candy Crush</h1>
       <Board/>
     </div>
   )

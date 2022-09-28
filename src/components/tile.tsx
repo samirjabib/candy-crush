@@ -1,5 +1,11 @@
+import { useAppDispatch } from "../hooks/use-app-dispatch";
+import { dragDrop, dragEnd, dragStart } from "../store/slices/candy-crush/candy-crush.slice";
 
 const Title = ({candy, candyId}:{ candy:string, candyId:number}) => {
+
+    const dispatch = useAppDispatch();
+
+
     return (
         <div    className="h-24 w-24 flex justify-center items-center m-0.5 rounded-lg select-none"
         style={{
@@ -13,7 +19,12 @@ const Title = ({candy, candyId}:{ candy:string, candyId:number}) => {
                 className="h-20 w-20"
                 draggable={true}
                 candy-id={candyId}
-
+                onDragStart={(e) => dispatch(dragStart(e.target))}
+                onDragOver={(e) => e.preventDefault()}
+                onDragEnter={(e) => e.preventDefault()}
+                onDragLeave={(e) => e.preventDefault()}
+                onDrop={(e) => dispatch(dragDrop(e.target))}
+                onDragEnd={() => dispatch(dragEnd())}
                 />
             )}
         </div>
