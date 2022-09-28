@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+
+import Board from "./components/board";
 import { useAppDispatch } from "./hooks/use-app-dispatch";
 import { useAppSelector } from "./hooks/use-app-selector"
 import { updateBoard } from "./store/slices/candy-crush/candy-crush.slice";
@@ -16,12 +18,13 @@ function App() {
 
   useEffect( () => {
     dispatch( updateBoard(createBoard(boardSize)));
-  }, [])
+  }, [dispatch, boardSize])
 
 
 
   return (
-    <div className="App">
+    <div className="flex items-center justify-center h-screen">
+      <Board/>
     </div>
   )
 }
