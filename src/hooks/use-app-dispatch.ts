@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "./use-app-dispatch";
+import { AppDispatch } from "../store/store";
 
 
 
