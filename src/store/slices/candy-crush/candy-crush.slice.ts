@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { moveBelowReducer } from "../../reducers/move-below";
 
 
 const initialState : {
@@ -17,7 +18,8 @@ export  const candyCrushSlice = createSlice( {
         updateBoard: ( state, action : PayloadAction<string[]>) => {
             state.board = action.payload;
         },
+        moveBelow: moveBelowReducer,
     },
 })
 
-export const { updateBoard } = candyCrushSlice.actions
+export const { updateBoard, moveBelow } = candyCrushSlice.actions

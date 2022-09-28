@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Board from "./components/board";
 import { useAppDispatch } from "./hooks/use-app-dispatch";
 import { useAppSelector } from "./hooks/use-app-selector"
-import { updateBoard } from "./store/slices/candy-crush/candy-crush.slice";
+import { moveBelow, updateBoard } from "./store/slices/candy-crush/candy-crush.slice";
 import { createBoard } from "./utils/create-board";
 import { formulaForColumnOfFour, formulaForColumnOfThree, generateInvalidMoves } from "./utils/formulas";
 import { checkForRowOfFour, checkForRowOfThree, isColumnOfFour, isColumnOfThree } from "./utils/move-check-logic";
@@ -33,6 +33,7 @@ function App() {
       checkForRowOfThree(newBoard, boardSize, generateInvalidMoves(boardSize, true));
 
       dispatch(updateBoard(newBoard))
+      dispatch(moveBelow());
       
     }, 150);
     return () => clearInterval(timeout)
